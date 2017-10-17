@@ -49,7 +49,6 @@
             </table>
             <button type="submit">Submit</button>
             <button type="reset" value="reset">Reset</button>
-            <input type="submit" value="Cancel" formaction="LineUp">
         </form>
     </body>
 </html>
