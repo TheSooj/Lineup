@@ -20,35 +20,11 @@
             <a href="LineUp?page=user">User page link</a>
             <div style="float:right"><a href="Logout">Logout</a></div>
         </div>
-        <h1>Request Time Off</h1>
+        <h1>Request</h1>
         
-        <form method="POST" action="">
-            <table>
-                <tr>
-                    <td>Request Type</td>
-                        <td>
-                            <select name="requestType">
-                                    <option value="unpaid">Unpaid</option>
-                                    <option value="PTO">Pay Time Off</option>
-                                    <option value="sick">Sick Day</option>
-                                    <option value="vacation">Vacation</option>
-                                    <option value="holiday">Holiday</option>
-                            </select>
-                        </td>
-                </tr>
-                <tr>
-                    <td><label for="req-start-date">Start Date:</label></td>
-                    <td><input id="req-start-date" type="date" name="startDate"></td>
-                    <td><label for="req-end-date">End Date:</label></td>
-                    <td><input id="req-end-date" type="date" name="endDate"></td>
-                </tr>
-                <tr>
-                    <td><label for="comment">Comment:</label></td>
-                    <td><textarea id="comment" cols="30"></textarea></td>
-                </tr>
-            </table>
-            <button type="submit">Submit</button>
-            <button type="reset" value="reset">Reset</button>
-        </form>
+        <!-- user will select an option for requesting days off or switching shifts -->
+        <a href="requestDaysOff.jsp"><input type="submit" name="requestDaysOff" value="Request Days Off"></a>
+        <a href="requestSwitchShifts.jsp"><input type="button" name="switch-shifts" value="Switch Shifts"></a>
+        
     </body>
 </html>
