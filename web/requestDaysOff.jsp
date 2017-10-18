@@ -20,7 +20,7 @@
             <a href="LineUp?page=user">User page link</a>
             <div style="float:right"><a href="Logout">Logout</a></div>
         </div>
-        <h1>Request</h1>
+        <h1>Request Day(s) Off Form</h1>
         
         <!-- user will select an option for requesting days off or switching shifts -->
         <a href="requestDaysOff.jsp"><input type="submit" name="requestDaysOff" value="Request Days Off"></a>
