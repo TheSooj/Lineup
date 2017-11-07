@@ -12,6 +12,13 @@
         <title>User Edit</title>
     </head>
     <body>
+        <div class="topnav">
+            <a href="LineUp">Home page link</a>
+            <a href="LineUp?page=request">Request page link</a>
+            <a href="LineUp?page=schedule">Schedule page link</a>
+            <a class="active" href="getUser">User page link</a>
+            <div style="float:right"><a href="Logout">Logout</a></div>
+        </div>
         <h1>Hello World!</h1>
     </body>
 </html>

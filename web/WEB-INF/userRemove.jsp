@@ -12,6 +12,13 @@
         <title>User Remove</title>
     </head>
     <body>
+        <div class="topnav">
+            <a href="LineUp">Home page link</a>
+            <a href="LineUp?page=request">Request page link</a>
+            <a href="LineUp?page=schedule">Schedule page link</a>
+            <a class="active" href="getUser">User page link</a>
+            <div style="float:right"><a href="Logout">Logout</a></div>
+        </div>
         <hr>Remove User</hr><br>
         <br>
         <td>Employee's Name</td>

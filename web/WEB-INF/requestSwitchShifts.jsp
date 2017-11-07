@@ -17,7 +17,7 @@
             <a href="LineUp">Home page link</a>
             <a class="active" href="LineUp?page=request">Request page link</a>
             <a href="LineUp?page=schedule">Schedule page link</a>
-            <a href="LineUp?page=user">User page link</a>
+            <a href="getUser">User page link</a>
             <div style="float:right"><a href="Logout">Logout</a></div>
         </div>
         <h1>Switch Shifts Form</h1>
