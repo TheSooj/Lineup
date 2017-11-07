@@ -21,14 +21,16 @@
             <div style="float:right"><a href="Logout">Logout</a></div>
         </div>
         <h1>User Maintenance Page</h1>
-    <hl> Add User</hr><br>
+    <hl> Add Employee</hr><br>
         <br>
-        <td><label for="Employee Name">Employee name:</label></td><br>
-       <input type="text" name="NewEmployeeName"><br>
-       <td><label for="Address"> Address:</label></td> <br><input type="text" name="Address"><br><br>
-       <td><label for="City">City:</label></td><br><input type="text" name="City"><br>
-       <td><label for="State">State:</label></td><br><select>
-           <option value =""></option>
+        <td><label for="LastName">Last Name </label></td><input type="text" name="LastName">
+        <td><label for="FirstName"> First Name  </label></td><input type="text" name="FirstName">
+        <td><label for="MiddleName"> Middle Name </label></td><input type="text" name="MiddleName"><br>
+        <br>
+        <td><label for="Address"> Address </label></td> <br><input type="text" name="Address"><br>
+        <td><label for="City">City </label><br></td><input type="text" name="City"><br>
+        <td><label for="State"> State </label></td><br><select>
+        <option value =""></option>
 	<option value="AL">Alabama</option>
 	<option value="AK">Alaska</option>
 	<option value="AZ">Arizona</option>
@@ -81,8 +83,22 @@
 	<option value="WI">Wisconsin</option>
 	<option value="WY">Wyoming</option>
 </select>				
-       <br>			
-       <td><label for="PhoneNum">Phone Number:</label></td><br><input type="text" name="PhoneNum"><br>
+        <br>
+        <td><label for="Zip Code"> Zip Code</label></td><br><input type="text" name="ZipCode"><br>
+       <br>
+       <td><label for="PhoneNum">Phone Number </label></td><br><input type="text" name="PhoneNum"><br>
+       <br>
+       <br>
+       <br>
+       <td><label for="State"> Level </label></td><select>
+        <option value =""></option>
+        <option value ="Emp">Employee</option>
+	<option value="MGMT">Manager</option>
+        <option value="Owner">Owner</option>
+        <option value ="SysAdmin">Admin</option>
+       </select>
+       <br>
+       <br>
        
        <br>
         <button type="Add">Add New Employee</button>
