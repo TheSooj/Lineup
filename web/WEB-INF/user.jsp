@@ -21,11 +21,14 @@
             <div style="float:right"><a href="Logout">Logout</a></div>
         </div>
         <h1>User Maintenance Page</h1>
-    <hl> Add User</hr>
+    <hl> Add User</hr><br>
+        <br>
          <td><label for="New Employee Name">New Employee name:</label></td>
        <input type="text" name="NewEmployeeName"><br>
+       <br>
         <button type="Add">Add New Employee</button>
-        <hr>Remove User</hr>
+        <hr>Remove User</hr><br>
+        <br>
         <td>Employee's Name</td>
                         <td>
                             <select name="listOfEmployees" required>
@@ -37,7 +40,22 @@
                         </td>
                         <tr>
                         <br>
+                        <br>
 <button type="Remove">Remove Employee</button>
+<hr> View/Edit Employee Information</hr><br>
+<td>
+    <br>
+                            <select name="listOfEmployees" required>
+                                <c:foreach var="employees" items="${employees}">
+                                    <!-- assumming that we have a variable name for the list of employees -->
+                                    <option value="${employees.name}">${employees.name}</option>
+                                </c:foreach>
+                            </select>
+                        </td>
+                        <tr>
+                        <br>
+                        <br>
+                        <button type="ViewEdit">View/Edit Employee</button>
     </tr>
     </body>
 </html>
