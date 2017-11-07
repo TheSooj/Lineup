@@ -23,8 +23,8 @@
         <h1>Switch Shifts Form</h1>
         
         <!-- user will select an option for requesting days off or switching shifts -->
-        <a href="requestDaysOff.jsp"><input type="submit" name="requestDaysOff" value="Request Days Off"></a>
-        <a href="requestSwitchShifts.jsp"><input type="button" name="switch-shifts" value="Switch Shifts"></a>
+        <a href="LineUp?page=requestDaysOff"><input type="submit" name="requestDaysOff" value="Request Days Off"></a>
+        <a href="LineUp?page=requestSwitchShifts"><input type="button" name="switch-shifts" value="Switch Shifts"></a>
         
         <form method="POST" action="">
             <table>

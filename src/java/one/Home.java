@@ -41,8 +41,7 @@ public class Home extends HttpServlet {
             
             request.setAttribute("username", username);
         } catch (Exception e){
-            System.out.println(e.getStackTrace()[0]);
-            request.getRequestDispatcher("index.html").forward(request, response);
+            //request.getRequestDispatcher("index.html").forward(request, response);
         }
         //check if still logged in
         if (username != null){
@@ -62,6 +61,12 @@ public class Home extends HttpServlet {
                     break;
                 case "logout":
                     request.getRequestDispatcher("WEB-INF/Logout").forward(request, response);
+                    break;
+                case "requestDaysOff":
+                    request.getRequestDispatcher("WEB-INF/requestDaysOff.jsp").forward(request, response);
+                    break;
+                case "requestSwitchShifts":
+                    request.getRequestDispatcher("WEB-INF/requestSwitchShifts.jsp").forward(request, response);
                     break;
                 default:
                     request.getRequestDispatcher("WEB-INF/home.jsp").forward(request, response);
