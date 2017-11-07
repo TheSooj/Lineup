@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Users</title>
+        <title>User Add</title>
         <link rel="stylesheet" type="text/css" href="lineupstyle.css">
     </head>
     <body>
