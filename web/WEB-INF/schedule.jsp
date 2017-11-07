@@ -23,27 +23,46 @@
         <h1>Schedule</h1>
         <hr>Schedule User</hr><br>
         <td>Employee's Name</td>
+        <tr>
+            <select name="listOfEmployees" required>
+                <c:foreach var="employees" items="${employees}">
+                    <!-- assumming that we have a variable name for the list of employees -->
+                    <option value="${employees.name}">${employees.name}</option>
+                </c:foreach>
+            </select>
+           </tr>
             <tr>
-                <select name="listOfEmployees" required>
-                    <c:foreach var="employees" items="${employees}">
-                        <!-- assumming that we have a variable name for the list of employees -->
-                        <option value="${employees.name}">${employees.name}</option>
-                    </c:foreach>
-                </select>
-                </tr>
-                <tr>
-                    <td><label for="req-switch-date">On Date:</label></td>
-                    <td><input id="req-switch-date" type="date" name="switchDate" required></td>
-                </tr>
-                <tr>
-                    <td><label for="req-start-time">Start Time:</label></td>
-                    <td><input id="req-start-time" type="time" name="startTime" required></td>
-                    <td><label for="req-end-time">End Time:</label></td>
-                    <td><input id="req-end-time" type="time" name="endTime" required></td>
-                </tr>
-                <tr>
-                    <button type="Remove">Enter Schedule</button><br>
-                </tr>
+                <td><label for="req-switch-date">On Date:</label></td>
+                <td><input id="req-switch-date" type="date" name="switchDate" required></td>
             </tr>
+            <tr>
+                <td><label for="req-start-time">Start Time:</label></td>
+                <td><input id="req-start-time" type="time" name="startTime" required></td>
+                <td><label for="req-end-time">End Time:</label></td>
+                <td><input id="req-end-time" type="time" name="endTime" required></td>
+            </tr>
+            <tr>
+                <button type="Remove">Enter Schedule</button><br>
+            </tr>
+        </tr>
+        <br>
+        <hr>Unschedule User</hr><br>
+        <td>Employee's Name</td>
+        <tr>
+            <select name="listOfEmployees" required>
+                <c:foreach var="employees" items="${employees}">
+                    <!-- assumming that we have a variable name for the list of employees -->
+                    <option value="${employees.name}">${employees.name}</option>
+                </c:foreach>
+            </select>
+            </tr>
+            <tr>
+                <td><label for="req-switch-date">On Date:</label></td>
+                <td><input id="req-switch-date" type="date" name="switchDate" required></td>
+            </tr>
+            <tr>
+                <button type="Remove">Unschedule</button><br>
+            </tr>
+        </tr>
     </body>
 </html>
