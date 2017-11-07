@@ -1,3 +1,7 @@
+/*
+created by: Johne Vang
+*/
+
 DROP DATABASE IF EXISTS Lineup;
 
 CREATE DATABASE Lineup;
