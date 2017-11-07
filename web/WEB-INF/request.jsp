@@ -24,7 +24,7 @@
         
         <!-- user will select an option for requesting days off or switching shifts -->
         <a href="LineUp?page=requestDaysOff"><input type="submit" name="requestDaysOff" value="Request Days Off"></a>
-        <a href="LineUp?page=requestSwitchShifts"><input type="button" name="switch-shifts" value="Switch Shifts"></a>
+        <a href="LineUp?page=requestSwitchShifts"><input type="submit" name="switch-shifts" value="Switch Shifts"></a>
         
     </body>
 </html>

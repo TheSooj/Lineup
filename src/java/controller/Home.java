@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package one;
+package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
@@ -17,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Chris
  */
-public class Logout extends HttpServlet {
+public class Home extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,10 +30,46 @@ public class Logout extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
-        Cookie ck = new Cookie("username", null);  
-        ck.setMaxAge(0);  
-        response.addCookie(ck);
-        response.sendRedirect("index.html");
+        Cookie ck[]=request.getCookies();
+        String username = null;
+        try {
+            for (Cookie ck1 : ck) {
+                if (ck1.getName().equals("username")) {
+                    username = ck1.getValue();
+                }
+            }
+            
+            request.setAttribute("username", username);
+        } catch (Exception e){
+            System.out.println(e.getStackTrace()[0]);
+            request.getRequestDispatcher("index.html").forward(request, response);
+        }
+        //check if still logged in
+        if (username != null){
+            String action = request.getParameter("page");
+            if (action == null){
+                action = "";
+            } 
+            switch (action) {
+                case "request":
+                    request.getRequestDispatcher("WEB-INF/request.jsp").forward(request, response);
+                    break;
+                case "schedule":
+                    request.getRequestDispatcher("WEB-INF/schedule.jsp").forward(request, response);
+                    break;
+                case "user":
+                    request.getRequestDispatcher("WEB-INF/user.jsp").forward(request, response);
+                    break;
+                case "logout":
+                    request.getRequestDispatcher("WEB-INF/Logout").forward(request, response);
+                    break;
+                default:
+                    request.getRequestDispatcher("WEB-INF/home.jsp").forward(request, response);
+                    break;
+            }
+        } else {
+            request.getRequestDispatcher("index.html").forward(request, response);            
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
