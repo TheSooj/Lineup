@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Line Up Home</title>
-        <link rel="stylesheet" type="text/css" href="lineupstyle.css">
+        <link rel="stylesheet" type="text/css" href="css/lineupstyle.css">
     </head>
     
         <div class="topnav">

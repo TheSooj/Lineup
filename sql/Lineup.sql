@@ -33,7 +33,7 @@ INSERT INTO Employees ( FirstName, LastName, PositionTitle, ManagerName ) VALUES
 CREATE USER lineup@localhost IDENTIFIED BY 'lineup';
 
 GRANT SELECT, INSERT, UPDATE, DELETE
-ON Employees.*
+ON Lineup.*
 TO lineup@localhost;
 
 USE Lineup;

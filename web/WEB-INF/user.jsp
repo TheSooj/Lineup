@@ -10,18 +10,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Users</title>
-        <link rel="stylesheet" type="text/css" href="lineupstyle.css">
+        <link rel="stylesheet" type="text/css" href="css/lineupstyle.css">
         <style>
-            table, th, td {
-                font-size: 17px;
-                padding: 15px 15px;
-                border-bottom: 2px solid #6678b1;
-            }
             
-            tr:hover {
-                background-color: #bbb;
-                
-            }
         </style>
     </head>
     <body>
@@ -37,6 +28,10 @@
         <p>${errMsg}</p>
         
         <h1>User Maintenance Page</h1>
+        
+        <form action="userAdd.jsp">
+            <input type="submit" value="Add Employee" />
+        </form>
         
         <h2>List of Staffs</h2>
         
@@ -63,8 +58,8 @@
                 <td>${employees.firstName} ${employees.lastName}</td>
                 <td>${employees.positionTitle}</td>
                 <td>${employees.managerName}</td>
-                <td><a href="LineUp?page=userEdit">Edit</a></td>
-                <td><a href="LineUp?page=userRemove">Remove</a></td>
+                <td><a href="updateUser?employeeID=${employees.employeeID}">Edit</a></td>
+                <td><a href="removeUser?employeeID=${employees.employeeID}">Remove</a></td>
             </tr>
             </c:forEach>
         </table>
