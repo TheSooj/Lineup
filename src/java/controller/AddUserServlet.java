@@ -41,14 +41,13 @@ public class AddUserServlet extends HttpServlet {
         List<String> errMsg = new LinkedList<>();
 
         /*
-        check if productcode, description, 
-        or price is empty or negative when submitting form
+            Validate parameters
         */
         if (firstName.trim().isEmpty() || lastName.trim().isEmpty()
                 || positionTitle.trim().isEmpty() || managerName.trim().isEmpty()) {
-            errMsg.add("FirstName, LastName, positionTitle, and manager's Name are required");
+            errMsg.add("FirstName, LastName, positionTitle, and Manager's Name are required");
             request.setAttribute("errMsg", errMsg);
-            request.getRequestDispatcher("user.jsp").forward(request, response);
+            request.getRequestDispatcher("getUser").forward(request, response);
         } else {
             User u = new User();
 

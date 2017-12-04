@@ -4,6 +4,8 @@ import db.Users;
 import db.UsersException;
 
 import java.io.IOException;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -38,6 +40,8 @@ public class EditUserServlet extends HttpServlet {
 
         String edit = request.getParameter("edit");
         String delete = request.getParameter("delete");
+        
+        List<String> errMsg = new LinkedList<>();
 
         if (delete != null) {
             request.getRequestDispatcher("removeUser").forward(request, response);
@@ -48,7 +52,13 @@ public class EditUserServlet extends HttpServlet {
             try {
                 int currentEmpID = Integer.parseInt(employeeID);
                 User u1 = users.selectEmployee(currentEmpID);
-                if (edit != null) {
+                
+                
+                if (firstName.trim().isEmpty() || lastName.trim().isEmpty() ||
+                        positionTitle.trim().isEmpty() || managerName.trim().isEmpty()) {
+                    errMsg.add("First name, Last Name, Position Title, and Manager's name is required");
+                    request.setAttribute("errMsg", errMsg);
+                } else {
                     u1.setEmployeeID(currentEmpID);
                     u1.setFirstName(firstName);
                     u1.setLastName(lastName);

@@ -42,7 +42,7 @@ public class DeleteUserServlet extends HttpServlet {
         if(delete != null) {
             try {
                 int currentEmpID = Integer.parseInt(employeeID);
-                //obtain product with specified code
+                //obtain user with specified ID
                 users.deleteUser(users.selectEmployee(currentEmpID));
                 request.setAttribute("u", users.selectAllEmployees());
                 

@@ -8,7 +8,6 @@ package controller;
 import db.Users;
 import db.UsersException;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -33,9 +32,10 @@ public class GetInfoServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String edit = request.getParameter("edit");
+        
         String delete = request.getParameter("delete");
         
+        //get the parameters from form
         try {
             String id = request.getParameter("employeeID");
             Users employees = Users.getInstance();
@@ -46,9 +46,7 @@ public class GetInfoServlet extends HttpServlet {
             Logger.getLogger(EditUserServlet.class.getName()).log(Level.SEVERE, null, ex);
             request.setAttribute("errMsg", "Error accessing product catalog");
         }
-        if(delete != null) {
-            request.getRequestDispatcher("userRemove.jsp").forward(request, response);
-        }
+        
         request.getRequestDispatcher("/userEdit.jsp").forward(request, response);
     }
 
