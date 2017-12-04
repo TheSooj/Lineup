@@ -46,7 +46,7 @@ public class DeleteUserServlet extends HttpServlet {
                 users.deleteUser(users.selectEmployee(currentEmpID));
                 request.setAttribute("u", users.selectAllEmployees());
                 
-                deleteMsg.add("\""+ firstName + " " + lastName + "\"" + " has been removed from the Product Catalog");
+                deleteMsg.add("\""+ firstName + " " + lastName + "\"" + " has been removed from Employees");
             request.setAttribute("deleteMsg", deleteMsg);
             } catch (UsersException ex) {
                 Logger.getLogger(DeleteUserServlet.class.getName()).log(Level.SEVERE, null, ex);
