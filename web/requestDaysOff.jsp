@@ -15,7 +15,7 @@
     <body>
         <div class="topnav">
             <a href="LineUp">Home page link</a>
-            <a class="active" href="LineUp?page=request">Request page link</a>
+            <a class="active" href="request.jsp">Request page link</a>
             <a href="LineUp?page=schedule">Schedule page link</a>
             <a href="getUser">User page link</a>
             <div style="float:right"><a href="Logout">Logout</a></div>
@@ -23,8 +23,8 @@
         <h1>Request Day(s) Off Form</h1>
         
         <!-- user will select an option for requesting days off or switching shifts -->
-        <a href="LineUp?page=requestDaysOff"><input type="submit" name="requestDaysOff" value="Request Days Off"></a>
-        <a href="LineUp?page=requestSwitchShifts"><input type="button" name="switch-shifts" value="Switch Shifts"></a>
+        <a href="requestDaysOff.jsp"><input type="submit" name="requestDaysOff" value="Request Days Off"></a>
+        <a href="requestSwitchShifts.jsp"><input type="button" name="switch-shifts" value="Switch Shifts"></a>
         
         <form method="POST" action="">
             <table>

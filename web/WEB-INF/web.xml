@@ -24,6 +24,14 @@
         <servlet-name>DeleteUser</servlet-name>
         <servlet-class>controller.DeleteUserServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddUser</servlet-name>
+        <servlet-class>controller.AddUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetInfo</servlet-name>
+        <servlet-class>controller.GetInfoServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -47,6 +55,14 @@
     <servlet-mapping>
         <servlet-name>DeleteUser</servlet-name>
         <url-pattern>/removeUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddUser</servlet-name>
+        <url-pattern>/addUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetInfo</servlet-name>
+        <url-pattern>/GetInfo</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

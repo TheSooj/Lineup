@@ -24,27 +24,21 @@
             <div style="float:right"><a href="Logout">Logout</a></div>
         </div>
         
-        <!-- errMsg will display if an issue occurs with connecting to the Database -->
+        <!-- errMsg will display if an issue occurs with connecting to the Database 
+            deleteMsg will display when an employee is deleted
+        -->
         <p>${errMsg}</p>
-        
+        <p>${deleteMsg}</p>
         <h1>User Maintenance Page</h1>
         
         <form action="userAdd.jsp">
-            <input type="submit" value="Add Employee" />
+            <input type="submit" name="addEmployee" value="Add Employee" />
         </form>
         
         <h2>List of Staffs</h2>
         
         <table>
-            <!-- Combined the employee's first name and last name.
-                Some of the employee names and manager names are 
-                from a random name generator website. 
             
-                Future plan: might have to display the list of 
-                managers and system admins separately. Might have 
-                to create a remove employee servlet and edit employee
-                servlet  
-            -->
             <tr>
                 <th>Employee ID</th>
                 <th>Employee First Name</th>
@@ -58,8 +52,7 @@
                 <td>${employees.firstName} ${employees.lastName}</td>
                 <td>${employees.positionTitle}</td>
                 <td>${employees.managerName}</td>
-                <td><a href="updateUser?employeeID=${employees.employeeID}">Edit</a></td>
-                <td><a href="removeUser?employeeID=${employees.employeeID}">Remove</a></td>
+                <td><a name="edit" href="GetInfo?employeeID=${employees.employeeID}">Edit</a></td>
             </tr>
             </c:forEach>
         </table>

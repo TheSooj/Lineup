@@ -52,19 +52,19 @@ public class Home extends HttpServlet {
             } 
             switch (action) {
                 case "request":
-                    request.getRequestDispatcher("WEB-INF/request.jsp").forward(request, response);
+                    request.getRequestDispatcher("request.jsp").forward(request, response);
                     break;
                 case "schedule":
-                    request.getRequestDispatcher("WEB-INF/schedule.jsp").forward(request, response);
+                    request.getRequestDispatcher("schedule.jsp").forward(request, response);
                     break;
                 case "user":
-                    request.getRequestDispatcher("WEB-INF/user.jsp").forward(request, response);
+                    request.getRequestDispatcher("user.jsp").forward(request, response);
                     break;
                 case "logout":
-                    request.getRequestDispatcher("WEB-INF/Logout").forward(request, response);
+                    request.getRequestDispatcher("Logout").forward(request, response);
                     break;
                 default:
-                    request.getRequestDispatcher("WEB-INF/home.jsp").forward(request, response);
+                    request.getRequestDispatcher("home.jsp").forward(request, response);
                     break;
             }
         } else {

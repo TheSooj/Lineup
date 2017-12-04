@@ -1,9 +1,10 @@
 package controller;
 
-import db.Employees;
-import db.EmployeesException;
+import db.Users;
+import db.UsersException;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -17,6 +18,45 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class DeleteUserServlet extends HttpServlet {
 
+    
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String delete = request.getParameter("delete");
+        
+        String employeeID = request.getParameter("employeeID");
+        String firstName = request.getParameter("firstName");
+        String lastName = request.getParameter("lastName");
+        
+        List<String> deleteMsg = new LinkedList<>();
+        Users users = Users.getInstance();
+        
+        if(delete != null) {
+            try {
+                int currentEmpID = Integer.parseInt(employeeID);
+                //obtain product with specified code
+                users.deleteUser(users.selectEmployee(currentEmpID));
+                request.setAttribute("u", users.selectAllEmployees());
+                
+                deleteMsg.add("\""+ firstName + " " + lastName + "\"" + " has been removed from the Product Catalog");
+            request.setAttribute("deleteMsg", deleteMsg);
+            } catch (UsersException ex) {
+                Logger.getLogger(DeleteUserServlet.class.getName()).log(Level.SEVERE, null, ex);
+                request.setAttribute("errMsg", "error accessing Employees");
+            }
+        }
+            // forward control
+        request.getRequestDispatcher("getUser").forward(request, response); 
+    }
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -29,19 +69,8 @@ public class DeleteUserServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            String id = request.getParameter("employeeID");
-            Employees employees = Employees.getInstance();
-            
-            request.setAttribute("employees", employees.selectEmployee(Integer.parseInt(id)));
-            
-        } catch (EmployeesException ex) {
-            Logger.getLogger(EditUserServlet.class.getName()).log(Level.SEVERE, null, ex);
-            request.setAttribute("errMsg", "Error accessing product catalog");
-        }
-        request.getRequestDispatcher("/userRemove.jsp").forward(request, response);
+        processRequest(request, response);
     }
-
 
     /**
      * Handles the HTTP <code>POST</code> method.
@@ -54,7 +83,7 @@ public class DeleteUserServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        processRequest(request, response);
     }
 
     /**

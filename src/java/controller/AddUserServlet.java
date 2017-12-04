@@ -2,8 +2,9 @@ package controller;
 
 import db.Users;
 import db.UsersException;
-
 import java.io.IOException;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -16,7 +17,7 @@ import model.User;
  *
  * @author Johne
  */
-public class EditUserServlet extends HttpServlet {
+public class AddUserServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,41 +31,48 @@ public class EditUserServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String employeeID = request.getParameter("employeeID");
+        //1. get parameters from the form
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
         String positionTitle = request.getParameter("positionTitle");
         String managerName = request.getParameter("managerName");
+        String addEmployee = request.getParameter("addEmployee");
 
-        String edit = request.getParameter("edit");
-        String delete = request.getParameter("delete");
+        List<String> errMsg = new LinkedList<>();
 
-        if (delete != null) {
-            request.getRequestDispatcher("removeUser").forward(request, response);
-
+        /*
+        check if productcode, description, 
+        or price is empty or negative when submitting form
+        */
+        if (firstName.trim().isEmpty() || lastName.trim().isEmpty()
+                || positionTitle.trim().isEmpty() || managerName.trim().isEmpty()) {
+            errMsg.add("FirstName, LastName, positionTitle, and manager's Name are required");
+            request.setAttribute("errMsg", errMsg);
+            request.getRequestDispatcher("user.jsp").forward(request, response);
         } else {
-            Users users = Users.getInstance();
-            
-            try {
-                int currentEmpID = Integer.parseInt(employeeID);
-                User u1 = users.selectEmployee(currentEmpID);
-                if (edit != null) {
-                    u1.setEmployeeID(currentEmpID);
-                    u1.setFirstName(firstName);
-                    u1.setLastName(lastName);
-                    u1.setManagerName(managerName);
-                    u1.setPositionTitle(positionTitle);
+            User u = new User();
 
-                    users.updateUser(u1);
-                    request.setAttribute("u", u1);
+            final Users employees = Users.getInstance();
+            u.setFirstName(firstName);
+            u.setLastName(lastName);
+            u.setPositionTitle(positionTitle);
+            u.setManagerName(managerName);
+
+            if (addEmployee != null) {
+                try {
+                    //3. insert the user
+                    employees.addUser((User) u);
+                    request.setAttribute("u", u);
+
+                } catch (UsersException ex) {
+                    Logger.getLogger(AddUserServlet.class.getName()).log(Level.SEVERE, null, ex);
+                    request.setAttribute("errMsg", "Error with connection to Employees");
                 }
-            } catch (UsersException ex) {
-                Logger.getLogger(AddUserServlet.class.getName()).log(Level.SEVERE, null, ex);
-                request.setAttribute("errMsg", "Error with connection to Employees");
             }
-            request.getRequestDispatcher("getUser").forward(request, response);
         }
         
+        //5. forward control to UserServlet
+            request.getRequestDispatcher("getUser").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

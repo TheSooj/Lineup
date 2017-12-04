@@ -1,7 +1,7 @@
 package controller;
 
-import db.Employees;
-import db.EmployeesException;
+import db.Users;
+import db.UsersException;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -34,14 +34,14 @@ public class UserServlet extends HttpServlet {
             get the list of employees from the database
         */
         try {
-            final Employees employees = Employees.getInstance();
+            final Users employees = Users.getInstance();
             request.setAttribute("Employees", employees.selectAllEmployees());
-        } catch(EmployeesException ex) {
+        } catch(UsersException ex) {
             Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, ex);
             request.setAttribute("errMsg", "Error accessing the Employees database");
         }
         //forward control to user.jsp
-        request.getRequestDispatcher("WEB-INF/user.jsp").forward(request, response);
+        request.getRequestDispatcher("user.jsp").forward(request, response);
     }
 
     /**

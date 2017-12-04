@@ -148,5 +148,34 @@ public class User implements Serializable{
         this.firstName = firstName;
     }
 
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        return hash;
+    }
+
+    /**
+     * 
+     * @param obj
+     * @return true if same objects are equal, otherwise returns false
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final User other = (User) obj;
+        if (this.employeeID != other.employeeID) {
+            return false;
+        }
+        return true;
+    }
+
     
 }
