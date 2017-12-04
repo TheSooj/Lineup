@@ -42,6 +42,7 @@ public class EditUserServlet extends HttpServlet {
         String delete = request.getParameter("delete");
         
         List<String> errMsg = new LinkedList<>();
+        List<String> msg = new LinkedList<>();
 
         if (delete != null) {
             request.getRequestDispatcher("removeUser").forward(request, response);
@@ -67,6 +68,9 @@ public class EditUserServlet extends HttpServlet {
 
                     users.updateUser(u1);
                     request.setAttribute("u", u1);
+                    
+                    msg.add("Employee: " + employeeID + " - \""+ firstName + " " + lastName + "\"" + " has been edited.");
+                    request.setAttribute("msg", msg);
                 }
             } catch (UsersException ex) {
                 Logger.getLogger(AddUserServlet.class.getName()).log(Level.SEVERE, null, ex);
