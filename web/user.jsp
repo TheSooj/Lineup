@@ -29,6 +29,8 @@
         -->
         <p>${errMsg}</p>
         <p>${deleteMsg}</p>
+        <p>${msg}</p>
+        
         <h1>User Maintenance Page</h1>
         
         <form action="userAdd.jsp">

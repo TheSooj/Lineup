@@ -39,6 +39,7 @@ public class AddUserServlet extends HttpServlet {
         String addEmployee = request.getParameter("addEmployee");
 
         List<String> errMsg = new LinkedList<>();
+        List<String> msg = new LinkedList<>();
 
         /*
             Validate parameters
@@ -62,6 +63,8 @@ public class AddUserServlet extends HttpServlet {
                     //3. insert the user
                     employees.addUser((User) u);
                     request.setAttribute("u", u);
+                    msg.add(firstName + " " + lastName + " is added.");
+                    request.setAttribute("msg", msg);
 
                 } catch (UsersException ex) {
                     Logger.getLogger(AddUserServlet.class.getName()).log(Level.SEVERE, null, ex);
